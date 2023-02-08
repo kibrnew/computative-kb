@@ -8,7 +8,7 @@ class Solution:
                 if nums[pr1]==0:
                     k = k+ 1
                 pr1 += 1
-        ans=i - pr1 +1 
+        ans=len(nums) - pr1
         return ans
             
         
