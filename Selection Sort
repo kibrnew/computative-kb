@@ -1,0 +1,11 @@
+class Solution: 
+    def select(self, arr, i):
+         return (i+arr[i:].index(min(arr[i:])))
+    
+    def selectionSort(self, arr,n):
+        for i in range(len(arr)):
+            w=self.select(arr,i)
+            arr[w],arr[i]=arr[i],arr[w]
+        return arr
+            
+        #code here
