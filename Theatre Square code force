@@ -1,0 +1,6 @@
+import math
+inp = input().split()
+m, n, a = int(inp[0]), int(inp[1]), int(inp[2])
+ans = math.ceil(m / a)
+ans *= math.ceil(n / a)
+print(ans)
