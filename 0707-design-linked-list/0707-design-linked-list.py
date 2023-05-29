@@ -1,57 +1,49 @@
+class ListNode:
+    def __init__(self,x):
+        self.val=x
+        self.next=None
+
 class MyLinkedList:
+
     def __init__(self):
-        self.l=ListNode(0)
+        self.size=0
+        self.head=ListNode(0)        
+
     def get(self, index: int) -> int:
-        temp=self.l.next
-        while temp and index>0:
-            temp=temp.next
-            index-=1
-        if temp and index==0:
-            return temp.val
-        return -1      
+        if index < 0 or index >= self.size:
+            return -1
+        curr = self.head
+        for _ in range(index + 1):
+            curr = curr.next
+        return curr.val
+        
     def addAtHead(self, val: int) -> None:
-        node=ListNode(val)
-        temp=self.l.next
-        node.next=temp 
-        self.l.next=node  
+        self.addAtIndex(0, val)   
+
     def addAtTail(self, val: int) -> None:
-        node=ListNode(val)
-        temp=self.l
-        while temp.next:
-            temp=temp.next
-        temp.next=node
+        self.addAtIndex(self.size, val)
+        
     def addAtIndex(self, index: int, val: int) -> None:
-        node=ListNode(val)
-        temp=self.l.next
-        if index==0:
-            self.l.next=node
-            node.next=temp
+        if index > self.size:
             return
-        i=0
-        while temp and i<index-1:
-            temp=temp.next
-            i+=1
-        if temp:
-            if temp.next:
-                target=temp.next
-                temp.next=node
-                node.next=target
-            else:
-                temp.next=node
+        if index < 0:
+            index = 0
+        self.size += 1
+        pred = self.head
+        for _ in range(index):
+            pred = pred.next
+        to_add = ListNode(val)
+        to_add.next = pred.next
+        pred.next = to_add
 
     def deleteAtIndex(self, index: int) -> None:
-        i=0
-        temp=self.l.next
-        if index==0:
-            self.l.next=temp.next
+        if index < 0 or index >= self.size:
             return
-        while temp and i<index-1:
-            temp=temp.next
-            i+=1
-        if temp:
-            if temp.next:
-                target=temp.next
-                temp.next=target.next
+        self.size -= 1
+        pred = self.head
+        for _ in range(index):
+            pred = pred.next
+        pred.next = pred.next.next
 
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
