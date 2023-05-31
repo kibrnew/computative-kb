@@ -1,8 +1,9 @@
 class Solution:
     def fib(self, n: int) -> int:
-        dp=[0,1]
-        for i in range(1,n):
-            dp.append(dp[-1]+dp[-2])
-        return dp[n]
-        
+        @cache
+        def fibon(k):
+            if k<=1:
+                return k 
+            return fibon(k-1)+fibon(k-2)
+        return fibon(n)
         
