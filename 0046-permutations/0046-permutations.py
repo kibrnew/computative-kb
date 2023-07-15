@@ -1,15 +1,16 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        def perm(cur):
-            if len(cur)==len(nums):
-                ans.append(cur[:])
-                return 
-            for num in nums:
-                if num not in cur:
-                    cur.append(num)
-                    perm(cur)
-                    cur.pop()
+        temp=[]
         ans=[]
-        perm([])
-        return ans
-        
+        def track():
+            for num in nums:
+                if len(nums)==len(temp):
+                    ans.append(temp[:])
+                    return 
+                if num not in temp:
+                    temp.append(num)
+                    track()
+                    temp.pop()
+        track()
+        return ans   
+            
