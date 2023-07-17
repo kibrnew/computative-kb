@@ -1,22 +1,14 @@
 class Solution:
 	def subarraySum(self, nums: List[int], k: int) -> int:
-		result = 0 
-		prefix_sum = 0
-		d = {0 : 1}
+		ans = 0 
+		summ = 0
+		dic = {0 : 1}
 		for num in nums:
-		
-			prefix_sum = prefix_sum + num
-
-			if prefix_sum - k in d:
-			
-				result = result + d[prefix_sum - k]
-
-			if prefix_sum not in d:
-			
-				d[prefix_sum] = 1
+			summ = summ + num
+			if summ - k in dic:
+				ans = ans + dic[summ - k]
+			if summ not in dic:
+				dic[summ] = 1
 			else:
-				d[prefix_sum] = d[prefix_sum] + 1
-
-		return result
-            
-                
+				dic[summ] = dic[summ] + 1
+		return ans
