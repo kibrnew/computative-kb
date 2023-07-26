@@ -10,9 +10,7 @@ class Solution:
             new=[]
             for i in l:
                 new.append(str(i))
-                new.append("->")
-            new.pop()
-            return "".join(new)
+            return "->".join(new)
         ans=[]  
         def traverse(node,path):
             if not node:
