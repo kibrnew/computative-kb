@@ -23,12 +23,12 @@ class Solution:
             l.append(root.val)
             l=inorder(root.right,l)
             return l
-        def postorder(root,l):
-            if not root:
-                l.append(None)
-                return l
-            l=postorder(root.left,l)
-            l=postorder(root.right,l)
-            l.append(root.val)
-            return l
-        return postorder(p,[])==postorder(q,[]) and preorder(p,[])==preorder(q,[]) and inorder(p,[])==inorder(q,[])
+        # def postorder(root,l):
+        #     if not root:
+        #         l.append(None)
+        #         return l
+        #     l=postorder(root.left,l)
+        #     l=postorder(root.right,l)
+        #     l.append(root.val)
+        #     return l
+        return preorder(p,[])==preorder(q,[]) and inorder(p,[])==inorder(q,[])
