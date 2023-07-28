@@ -11,7 +11,6 @@ class Solution:
         def traverse(root):
             if not root:
                 return 
-            print(root.val)
             flag=0
             if not(root.left): 
                 if root.val>val:
