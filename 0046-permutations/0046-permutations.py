@@ -11,6 +11,6 @@ class Solution:
                     temp.append(num)
                     track()
                     temp.pop()
-        track()
+        track()            
         return ans   
             
