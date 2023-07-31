@@ -11,10 +11,10 @@ class Solution:
             if not root:
                 return
             if not root.left and not root.right:
-                if side == "left": 
+                if side == "l": 
                     s[0]+= root.val
-            traverse(root.left,"left")
-            traverse(root.right,"right")
+            traverse(root.left,"l")
+            traverse(root.right,"r")
         traverse(root,0)
         return s[0]
 
