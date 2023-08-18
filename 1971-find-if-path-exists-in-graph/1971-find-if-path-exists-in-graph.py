@@ -11,13 +11,13 @@ class Solution:
             else:
                 graph[b]=[a]
         visited=set([source])
-        stack=[source]
-        while stack:
-            temp=stack.pop()
+        queue=deque([source])
+        while queue:
+            temp=queue.popleft()
             if temp==destination:
                 return True 
             for vertex in graph[temp]:
                 if vertex not in visited:
                     visited.add(vertex)
-                    stack.append(vertex)    
+                    queue.append(vertex)       
         return False
