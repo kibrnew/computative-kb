@@ -1,0 +1,44 @@
+def iinp(): return int(input())
+def linp():return list(map(int, input().split())) 
+def digit():return [int(i) for i in (list(input()))]
+def char():return list(input())
+def lsinp():return input().split()
+
+
+def solve():
+    n,c=lsinp()
+    n=int(n)
+    k=input()
+    s=k+k[:k.index("g")+1]
+    m=0
+    pr1=0
+    pr2=0
+    cur=0
+    if c=="g":
+        print(0)
+        return
+    while pr1<len(s):
+        if s[pr1]==c:
+            pr2+=1
+            cur+=1
+            while pr2<len(s):
+                if s[pr2]=="g":
+                    m=max(cur,m)
+                    # print(m,pr1,pr2)
+                    cur=0
+                    pr1=pr2
+                    break
+                else:
+                    cur+=1
+                    pr2+=1
+        pr1+=1
+        pr2=pr1
+        
+        if pr2==len(s):
+            break
+    print(m)
+            
+
+q=iinp()
+for _ in range(q):
+    solve()
