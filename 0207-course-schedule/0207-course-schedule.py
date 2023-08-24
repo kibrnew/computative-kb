@@ -17,7 +17,6 @@ class Solution:
             visited.remove(node)
             graph[node]=[]
             return True
-        print(graph)
         ab=list(graph.keys())
         for keys in ab:
             if not dfs(keys):
