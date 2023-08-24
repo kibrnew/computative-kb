@@ -7,7 +7,6 @@ class Solution:
         visited=set()
         def dfs(node):
             if node in visited:
-                print("here")
                 return False
             if graph[node]==[]:
                 return True
@@ -19,7 +18,8 @@ class Solution:
             graph[node]=[]
             return True
         print(graph)
-        for keys in range(numCourses):
+        ab=list(graph.keys())
+        for keys in ab:
             if not dfs(keys):
                 return False
         return True
