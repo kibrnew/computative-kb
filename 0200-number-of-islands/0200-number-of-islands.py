@@ -9,7 +9,7 @@ class Solution:
             return 0<=row<n and 0<=col<m
         def bfs(i,j):
             visited.add((i,j))
-            queue=[]
+            queue=deque()
             queue.append((i,j))
             while queue:
                 row,col=queue.pop()
