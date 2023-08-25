@@ -12,7 +12,7 @@ class Solution:
             queue=deque()
             queue.append((i,j))
             while queue:
-                row,col=queue.pop()
+                row,col=queue.popleft()
                 for dr,dc in directions4:
                     newr,newc=row+dr,col+dc
                     if valid(newr,newc) and (newr,newc) not in visited and grid[newr][newc]=="1":
