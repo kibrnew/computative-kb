@@ -3,7 +3,7 @@ class Solution:
         if endGene not in bank:
             return -1
         bank= set(bank)
-        mutations = {'A', 'C', 'G', 'T'}
+        mutations = ['A', 'C', 'G', 'T']
         queue = deque([(startGene, 0)])
 
         while queue:
