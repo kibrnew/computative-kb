@@ -1,36 +1,34 @@
 class Solution:
     def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
+        def check(row,col):
+            return 0 <= row < len(board) and 0 <= col < len(board[0])
         def dfs(row, col):
-            if board[row][col] == 'M':
-                board[row][col] = 'X'
-            elif board[row][col] == 'E':
-                mines_adjacent = count_adjacent_mines(row, col)
-                if mines_adjacent == 0:
+    
+            if board[row][col] == 'E':
+                adjacent = count(row, col)
+                if adjacent == 0:
                     board[row][col] = 'B'
                     for dr, dc in directions:
                         r, c = row + dr, col + dc
-                        if 0 <= r < len(board) and 0 <= c < len(board[0]):
+                        if check(r,c):
                             dfs(r, c)
                 else:
-                    board[row][col] = str(mines_adjacent)
+                    board[row][col] = str(adjacent)
 
-        def count_adjacent_mines(row, col):
+        def count(row, col):
             count = 0
             for dr, dc in directions:
                 r, c = row + dr, col + dc
-                if 0 <= r < len(board) and 0 <= c < len(board[0]) and board[r][c] == 'M':
+                if check(r,c) and board[r][c] == 'M':
                     count += 1
             return count
 
         directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
+        row,col = click
 
-        click_row, click_col = click
-
-        if board[click_row][click_col] == 'M':
-            # If the click hits a mine, game over.
-            board[click_row][click_col] = 'X'
+        if board[row][col] == 'M':
+            board[row][col] = 'X'
         else:
-            # If the click is on an empty square, reveal it and its neighbors.
-            dfs(click_row, click_col)
+            dfs(row,col)
 
         return board
