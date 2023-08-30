@@ -21,6 +21,8 @@ class Solution:
             if vertex not in visited:
                 color[vertex]=1
                 dfs(vertex,1)
-        return flag[0]
+                if not flag[0]:
+                    return False
+        return True
         
         
