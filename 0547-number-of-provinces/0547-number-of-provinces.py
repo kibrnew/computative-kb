@@ -11,7 +11,7 @@ class Solution:
             visited[stor[0]]=True
             stor.pop(0)
             while queue:
-                vertex=queue.pop()
+                vertex=queue.popleft()
                 for i in range(n):
                     if isConnected[vertex][i]==1 and not visited[i]:
                         queue.append(i)
