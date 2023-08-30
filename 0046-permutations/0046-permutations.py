@@ -3,10 +3,10 @@ class Solution:
         temp=[]
         ans=[]
         def track():
-            for num in nums:
-                if len(nums)==len(temp):
+            if len(nums)==len(temp):
                     ans.append(temp[:])
                     return 
+            for num in nums:
                 if num not in temp:
                     temp.append(num)
                     track()
