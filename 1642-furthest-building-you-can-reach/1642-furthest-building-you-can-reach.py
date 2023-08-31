@@ -5,7 +5,6 @@ class Solution:
         for i in range(n-1):
             temp.append(heights[i+1]-heights[i])
         use=[]
-        heapify(use)
         for j,i in enumerate (temp):
             if i>0:
                 if i<=bricks:
