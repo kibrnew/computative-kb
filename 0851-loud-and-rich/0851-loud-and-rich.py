@@ -4,21 +4,27 @@ class Solution:
         graph=defaultdict(list)
         for a,b in richer:
             graph[b].append(a)
+        ans={}
+        visited=set()
         def dfs(node):
             visited.add(node)
-            if quiet[node]<quiet[ans[0]]:
-                ans[0]=node
-                
+            val=[node]
             for i in graph[node]:
-                if i not in visited:
-                    dfs(i)
+                if i not in ans:
+                    val.append(dfs(i))
+                else:
+                    val.append(ans[i])
+            small=node
+            for j in val:
+                if quiet[j]<quiet[small]:
+                    small=j
+            ans[node]=small
+            return small
         final=[]
         for i in range(n):
-            ans=[i]
-            visited=set()
-            dfs(i)
-            final.append(ans[0])
-        
+            if i not in visited:
+                dfs(i)
+            final.append(ans[i])
         
         return final
         
