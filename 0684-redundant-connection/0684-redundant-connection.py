@@ -11,7 +11,7 @@ class Solution:
                         return True 
         for start,end in edges:
             visited=set()
-            if start in graph and end in graph and dfs(start,end):
+            if graph[start] and graph[end] and dfs(start,end):
                 return start,end
             graph[start].add(end)
             graph[end].add(start)
