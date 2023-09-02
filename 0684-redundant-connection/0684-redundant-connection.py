@@ -9,9 +9,9 @@ class Solution:
                 for child in graph[node]:
                     if dfs(child,target):
                         return True 
-        for root,edge in edges:
+        for start,end in edges:
             visited=set()
-            if root in graph and edge in graph and dfs(root,edge):
-                return root,edge
-            graph[root].add(edge)
-            graph[edge].add(root)
+            if start in graph and end in graph and dfs(start,end):
+                return start,end
+            graph[start].add(end)
+            graph[end].add(start)
