@@ -7,17 +7,12 @@ class Solution:
         count = defaultdict(int)
         ans=0
         for num in prefix: 
-            r=num%k
-            if r==0:
+            if num==0:
                 ans+=1
-            if count[r]:
-                ans+=count[r]
+            ans+=count[num]
             count[num]+=1
         return ans
-#         ans=0
-#         for i in  
-        
-#         cnt = 0
+
 
         
         
