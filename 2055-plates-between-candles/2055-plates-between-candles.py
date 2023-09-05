@@ -5,7 +5,10 @@ class Solution:
         for start, end in queries:
             left = bisect_left(pos,start)
             right = bisect_left(pos,end + 1)- 1
-            answer = pos[right] - pos[left] - (right - left) if left < right else 0
-            final.append(answer)
+            if left < right:
+                 ans = pos[right] - pos[left] - (right - left)
+            else: 
+                ans=0
+            final.append(ans)
         return final
 
