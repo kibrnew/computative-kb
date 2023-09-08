@@ -7,7 +7,7 @@ class Solution:
             if i == n:
                 result[0] = min(result[0], max(cur))
                 return
-            if result[0]<max(cur):
+            if result[0]<=max(cur):
                 return
             for j in range(k):
                 cur[j] += cookies[i]
