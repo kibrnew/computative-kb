@@ -5,10 +5,13 @@ class Solution:
         temp=[0]*n
         
         def track(ind,count):
-            print(ind)
+            nonlocal ans
+            # print(ind)
+            if l-ind+count<ans:
+                return 
             if ind==l:
                 if all (x==0 for x in temp):
-                    nonlocal ans
+                   
                     ans=max(ans,count)
                 return 
             track (ind+1,count)
