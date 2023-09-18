@@ -3,20 +3,16 @@ class Solution:
         n = len(nums)
 
         def maxSum(nums):
-            maxSum = float('-inf')
-            currSum = 0
+            maxi= float('-inf')
+            cur= 0
             for num in nums:
-                currSum = max(num, currSum + num)
-                maxSum = max(maxSum, currSum)
-            return maxSum
-
-        maxWithoutCircular = maxSum(nums)
-
-        totalSum = sum(nums)
-        invertedNums = [-num for num in nums]
-        maxWithCircular = totalSum + maxSum(invertedNums)
-
-        if maxWithCircular == 0:
-            return maxWithoutCircular
-
-        return max(maxWithoutCircular, maxWithCircular)
+                cur= max(num, cur + num)
+                maxi= max(maxi, cur)
+            return maxi
+        maxnc= maxSum(nums)
+        total= sum(nums)
+        nnums= [-num for num in nums]
+        final= total + maxSum(nnums)
+        if final== 0:
+            return maxnc
+        return max(maxnc,final)
