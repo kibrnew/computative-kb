@@ -7,7 +7,8 @@ class Solution:
         #         return 1
         #     else :
         #         return fib(k-1)+fib(k-2)
-        fib=[1,2]
-        for i in range(2,n):
-            fib.append(fib[i-1]+fib[i-2])
-        return fib[n-1]
+        pr1=1
+        pr2=1
+        for i in range(n):
+            pr1,pr2=pr1+pr2,pr1
+        return pr2
