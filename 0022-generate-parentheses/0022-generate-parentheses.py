@@ -1,7 +1,7 @@
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans=[]
-        
+        @cache
         def dfs(cur, opened, closed):
             if len(cur) == 2 * n:
                 ans.append(cur)
