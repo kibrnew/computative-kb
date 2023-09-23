@@ -11,7 +11,6 @@ class Solution:
             for i in range(1,4):
                 new=cur+[remain[:i]]
                 val=int(remain[:i])
-                # print(i,val)
                 if val<256 and (i==1 or val>=10**(i-1)):
                     dfs(new,remain[i:])
         if len(s)>12:
