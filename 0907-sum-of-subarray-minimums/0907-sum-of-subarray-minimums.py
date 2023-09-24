@@ -1,16 +1,17 @@
 class Solution:
     def sumSubarrayMins(self, arr: List[int]) -> int:
-        ans, stack = 0, []
+        ans=0
+        stack=[]
         for num in arr:
-            cnt = 1
-            while stack and stack[-1][0] >= num:
+            count = 1
+            while stack and stack[-1][0]>=num:
                 n, c = stack.pop()
-                ans += n*c*cnt
-                cnt += c
-            stack.append((num, cnt))
-        cnt = 1
+                ans+=n*c*count
+                count += c
+            stack.append((num,count))
+        count = 1
         while stack:
-            n, c = stack.pop()
-            ans += n * c * cnt
-            cnt += c
-        return ans % (10**9 + 7)
+            n,c=stack.pop()
+            ans+=n*c*count
+            count+=c
+        return ans%(10**9 + 7)
