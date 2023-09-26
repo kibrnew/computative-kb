@@ -13,10 +13,10 @@ class Trie:
         cur = self.root
         
         for i in word:
-            if not cur.child[ord(i)-ord("a")]:
-                child=Trienode()
-                cur.child[ord(i)-ord("a")]=child
-            cur=cur.child[ord(i)-ord("a")]
+            ind=ord(i)-ord("a")
+            if not cur.child[ind]:
+                cur.child[ind]=Trienode()
+            cur=cur.child[ind]
         
         cur.end=True
         
@@ -25,10 +25,11 @@ class Trie:
         cur=self.root
         
         for i in word:
-            if not cur.child[ord(i)-ord("a")]:
+            ind=ord(i)-ord("a")
+            if not cur.child[ind]:
                 return False
-            cur=cur.child[ord(i)-ord("a")]
-        
+            cur=cur.child[ind]
+
         if not cur.end:
             return False
         
@@ -39,9 +40,10 @@ class Trie:
     def startsWith(self, prefix: str) -> bool:
         cur=self.root
         for i in prefix:
-            if not cur.child[ord(i)-ord("a")]:
+            ind=ord(i)-ord("a")
+            if not cur.child[ind]:
                 return False
-            cur=cur.child[ord(i)-ord("a")]
+            cur=cur.child[ind]
         return True 
         
 
