@@ -1,6 +1,6 @@
 class Trienode:
     def __init__(self):
-        self.child=[None for _ in range(26)]
+        self.child={}
         self.end=False
         
 class Trie:
@@ -12,10 +12,10 @@ class Trie:
         
         cur = self.root
         
-        for i in word:
-            ind=ord(i)-ord("a")
-            if not cur.child[ind]:
+        for ind in word:
+            if ind not in cur.child:
                 cur.child[ind]=Trienode()
+
             cur=cur.child[ind]
         
         cur.end=True
@@ -24,9 +24,9 @@ class Trie:
         
         cur=self.root
         
-        for i in word:
-            ind=ord(i)-ord("a")
-            if not cur.child[ind]:
+        for ind in word:
+
+            if ind not in cur.child:
                 return False
             cur=cur.child[ind]
 
@@ -39,9 +39,10 @@ class Trie:
 
     def startsWith(self, prefix: str) -> bool:
         cur=self.root
-        for i in prefix:
-            ind=ord(i)-ord("a")
-            if not cur.child[ind]:
+        
+        for ind in prefix:
+        
+            if ind not in cur.child:
                 return False
             cur=cur.child[ind]
         return True 
