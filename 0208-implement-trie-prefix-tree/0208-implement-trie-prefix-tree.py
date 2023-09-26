@@ -30,14 +30,12 @@ class Trie:
                 return False
             cur=cur.child[ind]
 
-        if not cur.end:
-            return False
-        
-        return True 
+        return cur.end
                 
         
 
     def startsWith(self, prefix: str) -> bool:
+        
         cur=self.root
         
         for ind in prefix:
@@ -45,6 +43,7 @@ class Trie:
             if ind not in cur.child:
                 return False
             cur=cur.child[ind]
+            
         return True 
         
 
