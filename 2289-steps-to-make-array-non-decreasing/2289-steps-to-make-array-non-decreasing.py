@@ -1,10 +1,13 @@
 class Solution:
     def totalSteps(self, nums: List[int]) -> int:
         n = len(nums)
-        dp = [0] * n
+        ans = [0] * n
         stack = []
-        for i in range(n-1, -1, -1):
+        for i in reversed(range(n)):
             while stack and nums[i] > nums[stack[-1]]:
-                dp[i] = max(dp[i] + 1, dp[stack.pop()])
+                ans[i] = max(ans[i] + 1, ans [stack.pop()])
+                # print(ans)
+                # print(stack)
             stack.append(i)
-        return max(dp)
+            # print(stack)
+        return max(ans)
