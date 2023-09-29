@@ -1,23 +1,16 @@
 class Solution:
     def maximumTastiness(self, price: List[int], k: int) -> int:
-    
         price.sort()
-        n=len(price)
-        
-        l,r,ans=0,price[-1],price[-1]
-        
-        while l<=r:
-            mid=l+(r-l)//2
-            count,last=1,price[0]
-            
-            for i in range(1,n):
-                if price[i]-last>=mid:
-                    count+=1
-                    last=price[i]
-            if count>=k:
-                ans=mid
-                l=mid+1
-            else:
-                r=mid-1
-        return ans 
-        
+        L = 0
+        R = (price[-1] - price[0]) // (k - 1)
+        while L < R:
+            M = (L + R + 1) >> 1
+            x = 0
+            y = price[0]
+            for t in price:
+                if t >= y:
+                    x += 1
+                    y = t + M
+            if x < k: R = M - 1
+            else: L = M
+        return L
