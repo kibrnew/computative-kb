@@ -3,7 +3,6 @@ class Solution:
     
         price.sort()
         n=len(price)
-        ans=[price[0]]
         
         l,r,ans=0,price[-1],price[-1]
         
