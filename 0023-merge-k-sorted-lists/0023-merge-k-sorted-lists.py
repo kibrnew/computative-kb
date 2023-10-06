@@ -5,8 +5,6 @@
 #         self.next = next
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        # if len(lists)<1:
-        #     return None
         def merge(h1,h2):
             cur=ListNode(-float("inf"))
             ans=cur
@@ -23,10 +21,7 @@ class Solution:
                 cur.next=h2
             else:
                 cur.next=h1
-            return ans.next
-        
-        # left,right=lists
-        
+            return ans.next  
         def merge_sort(l):
             if len(l)<2:
                 if not l:
@@ -37,7 +32,6 @@ class Solution:
                 left=merge_sort(l[:middle])
                 right=merge_sort(l[middle:])
                 return merge(left,right)
-        
         
         return merge_sort(lists)
         
