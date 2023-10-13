@@ -4,7 +4,7 @@ class Solution:
             return len(nums)-1
         ans=0
         prev=0
-        flag=False
+        flag=True
         count=0
         p=0
         for i in nums:
@@ -17,7 +17,6 @@ class Solution:
                     count=0
                 elif flag:
                     ans=max(ans,prev+count)
-                    # flag=False
                     prev=count
                     count=0
                 else:
