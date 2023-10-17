@@ -5,16 +5,20 @@ class Solution:
             return False
         target//=2
         
-        @cache
+        dp={}
         def dfs(i,s):
             
             if i>=len(nums):
                 return False
             if s>target:
                 return False 
+            if (i,s) in dp:
+                return dp[(i,s)]
             if s==target:
                 return True
-            return dfs(i+1,s) or dfs(i+1,s+nums[i])
+            dp[(i,s)]=dfs(i+1,s) or dfs(i+1,s+nums[i])
+            return dp[(i,s)]
+            
         return dfs(0,0)
 
                 
