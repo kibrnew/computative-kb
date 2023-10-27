@@ -3,13 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        ans=[]
-        size=len(nums)
-        k=k%size
-        for i in range(1,size+1):
-            if i<=k:
-                ans.append(nums[size-k+i-1])
-            else:
-                ans.append(nums[i-k-1]) 
-                
-        nums[0:] = ans
+        pr1=0
+        n=len(nums)
+        k=k%n
+        for i in range(n//2):
+            nums[i],nums[-1-i]=nums[-i-1],nums[i]
+        # print(nums)
+        for i in range(k//2):
+            nums[i],nums[k-i-1]=nums[k-i-1],nums[i]
+        # print(nums)
+        for i in range(k,(n+k)//2):
+            nums[i],nums[n+k-i-1]=nums[n+k-i-1],nums[i]
+            
