@@ -6,7 +6,7 @@ class Solution:
         while left<right:
             if numbers[left]+numbers[right]==target:
                 return [left+1,right+1]
-            if numbers[left]+numbers[right]<target:
+            elif numbers[left]+numbers[right]<target:
                 left+=1
             else:
                 right-=1
