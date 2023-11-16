@@ -1,33 +1,26 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
+        
+        opp={"+","-","/","*"}
+        def evaluate(a,b,opp):
+            if opp=="+":
+                return str(a+b)
+            if opp=="-":
+                return str(a-b)
+            if opp=="/":
+                temp=a/b
+                return str(int(temp))
+            if opp=="*":
+                return str(a*b)
         stack=[]
-        def turn(i,j):
-            if i%j==0:
-                return i//j
+        
+        for val in tokens:  
+            if val in opp:
+                right=int(stack.pop())
+                left=int(stack.pop())
+                stack.append(evaluate(left,right,val))
             else:
-                if i/j > 0:
-                    return i//j 
-                else:
-                    return (i//j +1)
-        for i in range(len(tokens)):
-            x=tokens[i]
-            if x=="+":
-                b=int(stack.pop())
-                a=int(stack.pop())
-                stack.append(str(a+b))
-            elif x=="-":
-                b=int(stack.pop())
-                a=int(stack.pop())
-                stack.append( str(a-b))
-            elif x=="*":
-                b=int(stack.pop())
-                a=int(stack.pop())
-                stack.append( str(a*b))
-            elif x=="/":
-                b=int(stack.pop())
-                a=int(stack.pop())
-                stack.append( str(turn(a,b)))
-            else: 
-                stack.append(x)
-        return int(stack[0])
-
+                stack.append(val)
+        return int(stack.pop())
+                
+        
