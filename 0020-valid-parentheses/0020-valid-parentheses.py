@@ -1,13 +1,13 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         
-        opens={"}":"{","]":"[",")":"("}
+        closes={"{":"}","[":"]","(":")"}
         stack=[]
         for val in s:
-            if val not in opens:
+            if val in closes:
                 stack.append(val)
             else:
-                if not stack or opens[val]!=stack.pop():
+                if not stack or closes[stack.pop()]!=val:
                     return False
         if stack:
             return False
