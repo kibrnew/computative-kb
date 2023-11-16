@@ -1,26 +1,40 @@
 class Solution:
     def isValid(self, s: str) -> bool:
+        
+        # stack=list(s)
+        opens={"{":"}","[":"]","(":")"}
+        closed={"}","]",")"}
         stack=[]
-        if (len(s)%2)!=0:
-            return False 
-        if s[0]=="]" or s[0]==")" or s[0]=="}":
-            return False      
-        for i in range(len(s)):
-            if s[i]=="[" or s[i]=="(" or s[i]=="{":
-                stack.append(s[i])
+        
+        for val in s:
+            if val in closed:
+                if stack and opens[stack.pop()]==val:
+                    continue 
+                return False
             else:
-                if stack:
-                    cb= s[i]
-                    op= stack.pop()
-                    jo=op+cb
-                    if (jo!="[]") and (jo!="{}") and (jo!="()"):
-                        return False
-                else:
-                    return False
-        if len(stack) >0 :
+                stack.append(val)
+        if stack:
             return False
-            
         return True
+            
+        
+        
+        
+        
+        # n=len(s)
+        # if len(s)&1:
+        #     return False
+        # while stack:
+        #     right=stack.pop()
+        #     if  right in closed:
+        #         left=stack.pop()
+        #         if left not in opens or opens[left]!=right:
+        #             return False
+        #     else:
+        #         return False
+     
+        # return True
+            
             
             
             
