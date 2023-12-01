@@ -1,23 +1,26 @@
 class Solution:
     def isAlienSorted(self, words: List[str], order: str) -> bool:
         
-        # def sorter(word):
-        #     for i in range()
+
         ind={}
         for i in range(len(order)):
             ind[order[i]]=i
         
-        new=sorted(words,key=lambda word:[ind[i] for i in word])
-        return new==words
+        # new=sorted(words,key=lambda word:[ind[i] for i in word])
+        # return new==words
+    
+        prev=words[0]
+        for word in words[1:]:
+            if max(word,prev,key=lambda word:[ind[i] for i in word])!=word:
+                return False
+            prev=word
+        return True
+            
         
         
         
         
         
-        
-#         ind={}
-#         for i in range(len(order)):
-#             ind[order[i]]=i
 #         def compare(a,b):
 #             n=len(a)
 #             m=len(b)
