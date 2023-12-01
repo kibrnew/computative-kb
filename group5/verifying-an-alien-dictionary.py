@@ -22,10 +22,10 @@ class Solution:
         for i in range(n):
             mini=ans[i]
             for j in range(i+1,n):
-                if compare(mini,ans[j])==ans[j]:
+                if compare(mini,ans[j])!=mini:
                     mini,ans[j]=ans[j],mini
-            ans[i]=mini
-        return ans==words
+                    return False
+        return True
                     
                 
                 
