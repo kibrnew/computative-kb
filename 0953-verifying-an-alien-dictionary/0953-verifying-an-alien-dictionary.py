@@ -3,8 +3,11 @@ class Solution:
         
         # def sorter(word):
         #     for i in range()
+        ind={}
+        for i in range(len(order)):
+            ind[order[i]]=i
         
-        new=sorted(words,key=lambda word:[order.index(i) for i in word])
+        new=sorted(words,key=lambda word:[ind[i] for i in word])
         return new==words
         
         
