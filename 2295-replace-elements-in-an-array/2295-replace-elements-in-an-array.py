@@ -6,9 +6,13 @@ class Solution:
         for i,val in enumerate(nums):
             ind[val]=i
             
-        for i,val in operations:
-            nums[ind[i]]=val
-            ind[val]=ind[i]
+        for replaced,val in operations:
+            
+            i=ind[replaced]
+            
+            nums[i]=val
+            
+            ind[val]=i
             
         return nums
         
