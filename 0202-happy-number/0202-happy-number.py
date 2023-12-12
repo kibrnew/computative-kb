@@ -5,6 +5,6 @@ class Solution:
             
             return sum([int(val)**2 for val in str(m)])
         
-        for _ in range(20):
+        for _ in range(10):
             n=ssum(n)
         return n==1
