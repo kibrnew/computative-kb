@@ -10,12 +10,13 @@ class Solution:
                 val=board[i][j]
                 
                 if val!=".":
-                    k=(i//3)*10+j//3
+                    k=(i//3,j//3)
                     if val in row[i] or val in col[j] or val in box[k]:
                         return False
                     row[i].add(val)
                     col[j].add(val)
                     box[k].add(val)
+                    
         return True
                 
                 
