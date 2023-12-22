@@ -16,6 +16,8 @@ class Solution:
                     row[i].add(val)
                     col[j].add(val)
                     box[k].add(val)
+        # print(box)
+                    
         return True
                 
                 
