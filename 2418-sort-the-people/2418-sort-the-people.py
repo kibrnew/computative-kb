@@ -3,15 +3,13 @@ class Solution:
         
         n= len(names)
         
-        for i in range(n-1):
-            flag=True
-            for j in range(n-i-1):
-                if heights[j]<heights[j+1]:
-                    heights[j], heights[j+1]= heights[j+1], heights[j]
-                    names[j+1],names[j]=names[j],names[j+1]
-                    flag=False
-            if flag:
-                break
-        return names
+        for i in range(n):
+            for j in range(i+1,n):
+                
+                if heights[i]<heights[j]:
+                    heights[i],heights[j]=heights[j],heights[i]
+                    names[i],names[j]=names[j],names[i]
+        return names 
+                    
             
       
