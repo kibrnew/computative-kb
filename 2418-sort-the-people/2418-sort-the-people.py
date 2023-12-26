@@ -1,6 +1,37 @@
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         
+        
+        n=len(names)
+        
+        for i in range(1,n):
+            for j in range(i,0,-1):
+                if heights[j]>heights[j-1]:
+                    heights[j], heights[j-1]= heights[j-1], heights[j]
+                    names[j-1],names[j]=names[j],names[j-1]
+                else:
+                    break
+        return names
+                    
+        
+        
+        # bubble sort 
+        
+#         n= len(names)
+        
+#         for i in range(n-1):
+#             flag=True
+#             for j in range(n-i-1):
+#                 if heights[j]<heights[j+1]:
+#                     heights[j], heights[j+1]= heights[j+1], heights[j]
+#                     names[j+1],names[j]=names[j],names[j+1]
+#                     flag=False
+#             if flag:
+#                 break
+#         return names
+        
+   # selection sort
+        
 #         n= len(names)
         
 #         for i in range(n):
@@ -11,11 +42,16 @@ class Solution:
 #                     names[i],names[j]=names[j],names[i]
                     
 #         return names
-        new=sorted(zip(heights,names),reverse=True)
-        ans=[]
-        for h,n in new:
-            ans.append(n)
-        return ans 
+
+
+# the healthy way
+        # new=sorted(zip(heights,names),reverse=True)
+        # ans=[]
+        # for h,n in new:
+        #     ans.append(n)
+        # return ans 
+        
+        
     
     
                     
