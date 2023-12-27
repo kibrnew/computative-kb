@@ -13,7 +13,7 @@ class Solution:
             if x in check:
                 return ind[x]
             else:
-                return (x+2000)
+                return (x+1000)
         arr1.sort(key=sorter)
         return arr1
             
