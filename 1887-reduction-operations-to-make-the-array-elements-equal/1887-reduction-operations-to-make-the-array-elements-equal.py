@@ -1,14 +1,11 @@
 class Solution:
     def reductionOperations(self, nums: List[int]) -> int:
         
+        count = 0
         nums.sort()
-        n=len(nums)
-        val=0
-        ans=0
-        
-        for i in range(1,n):
-            if nums[i]!=nums[i-1]:
-                val+=1
-            ans+=val
-        return ans
+        size = len(nums)
+        for i in range(size - 1, 0, -1):
+            if nums[i - 1] != nums[i]:
+                count += size - i
+        return count
             
