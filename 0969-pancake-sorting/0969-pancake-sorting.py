@@ -1,15 +1,17 @@
 class Solution:
     def pancakeSort(self, arr: List[int]) -> List[int]:
+        
+        n=len(arr)
         ans=[]
-        for i in range(len(arr)-1,-1,-1):
-            ind=arr.index(max(arr[:i+1]))
-            if ind==i:
-                continue 
-            arr[ind::-1]=arr[:ind+1]
-            arr[:i+1]=arr[i::-1]
-            ans.append(ind+1)
-            ans.append(i+1)
+        for i in range(n,0,-1):
+            ind=arr.index(max(arr[:i]))+1
+            ans.append(ind)
+            ans.append(i)
+            arr[:ind]=arr[:ind][::-1]
+            arr[:i]=arr[:i][::-1]
         return ans
+            
+        
             
             
             
