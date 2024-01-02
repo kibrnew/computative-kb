@@ -7,14 +7,12 @@ class Solution:
         right=0
         n=len(nums)
         
-        while left<n and right<n:
-            while left<n and nums[left]!=0:
-                left+=1
-            while right<n and (nums[right]==0 or right<=left): 
-                right+=1
-            if left<n and right<n:
-                nums[left],nums[right]=nums[right],nums[left]
+        while right<n:
             
+            if nums[right]!=0:
+                nums[left],nums[right]=nums[right],nums[left]
+                left+=1
+            right+=1
                     
                     
            
