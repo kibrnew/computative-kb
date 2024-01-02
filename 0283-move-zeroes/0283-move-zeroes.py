@@ -3,24 +3,18 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        p1=0
-        p2=0
-        s=len(nums)
-        while p1<s:
-            k=0
-            if nums[p1]==0:
-                p1= p1+1
+        left=0
+        right=0
+        n=len(nums)
+        
+        while left<n and right<n:
+            while left<n and nums[left]!=0:
+                left+=1
+            while right<n and (nums[right]==0 or right<=left): 
+                right+=1
+            if left<n and right<n:
+                nums[left],nums[right]=nums[right],nums[left]
             
-            if p1 < s:
-                if nums[p1]==0:
-                    k=-1
-                if p1>p2 and nums[p1]!=0:
-                    if p1 < s:
-                        temp=nums[p1]
-                        nums[p1]=nums[p2]
-                        nums[p2]=temp
-            p1=p1+1
-            p2=p2+1+k
                     
                     
            
