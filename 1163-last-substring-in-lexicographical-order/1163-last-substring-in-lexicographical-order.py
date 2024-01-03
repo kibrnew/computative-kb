@@ -1,15 +1,17 @@
 class Solution:
     def lastSubstring(self, s: str) -> str:
         
-        k=0
-        for val in s:
-            k=max(k,ord(val))
-            
-        ans=""
+        maxi=max(s)
+        ans = []
         for i in range(len(s)):
-            if ord(s[i])==k:
-                ans=max(ans,s[i:])
+            if s[i]==maxi:
+                ans.append(i)
+        sol = ""
+        for n in ans:
+            sol = max(sol, s[n:])
         
-    
-        return ans
+        return sol
         
+            
+                
+            
