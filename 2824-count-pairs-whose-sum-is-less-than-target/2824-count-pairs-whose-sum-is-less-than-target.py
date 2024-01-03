@@ -13,6 +13,4 @@ class Solution:
             else:
                 left+=1
             ans+=left
-        return ans
-                
-        
+        return ans 
