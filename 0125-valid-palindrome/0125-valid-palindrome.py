@@ -1,14 +1,10 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        alphanum= ''
-        for i in range(97, 123):
-            alphanum+= chr(i)
-        for i in range(48, 58):
-            alphanum+= chr(i)
-        print(alphanum)
-        new=s.lower()
-        ans=""
-        for i in new :
-            if i in alphanum:
-                ans+=i
-        return ans==ans[::-1]
+        ans=[]
+        for val in s:
+            val=val.lower()
+            if ord("a")<=ord(val)<=ord("z") or ord("0")<=ord(val)<=ord("9"):
+                ans.append(val)
+                
+        res="".join(ans)
+        return res==res[::-1]
