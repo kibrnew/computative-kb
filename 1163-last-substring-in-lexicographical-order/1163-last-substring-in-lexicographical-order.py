@@ -1,14 +1,19 @@
 class Solution:
     def lastSubstring(self, s: str) -> str:
         
-        maxi=max(s)
-        sol = ""
-        first = s.index(maxi)
-        for i in range(first, len(s)):
-            if s[i]==maxi:
-                sol = max(sol, s[i:])
-    
-        
-        return sol    
-                
+        i = 0
+        j = 1
+        k = 0
+        n = len(s)
+        while j + k < n:
+            if s[i + k] == s[j + k]:
+                k += 1
+            elif s[i + k] > s[j + k]:
+                j += k + 1
+                k = 0
+            elif s[i + k] < s[j + k]:
+                i = max(i + k + 1, j)
+                j = i + 1
+                k = 0
+        return s[i:]
             
