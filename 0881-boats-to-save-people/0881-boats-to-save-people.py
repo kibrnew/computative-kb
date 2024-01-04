@@ -1,16 +1,19 @@
 class Solution:
     def numRescueBoats(self, people: List[int], limit: int) -> int:
-        n=len(people)
+        
+        left=0
+        right=len(people)-1
+        ans=0
         people.sort()
-        pointer1=0
-        pointer2=len(people)-1
-        while pointer1<pointer2:
-            summ=people[pointer1]+people[pointer2]
-            if summ<=limit:
-                n=n-1
-                pointer1=pointer1+1
-                pointer2=pointer2-1
+        while left<=right:
+            if people[left]+people[right]>limit:
+                ans+=1
             else:
-                pointer2=pointer2-1
-        return n
+                ans+=1
+                left+=1
+            right-=1
+        return ans
+        
+        
+        
                 
