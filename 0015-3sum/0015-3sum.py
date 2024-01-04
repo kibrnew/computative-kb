@@ -2,20 +2,24 @@ class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         ans=set()
-        for cur in range(len(nums)-2):
-            pr1=cur+1
-            pr2=len(nums)-1
-            while pr1<pr2:
-                if nums[cur]+nums[pr1]+nums[pr2]==0:
-                    ans.add((nums[cur],nums[pr1],nums[pr2]))
-                    pr1+=1
-                    pr2-=1
-                elif nums[cur]+nums[pr1]+nums[pr2]<0:
-                    pr1+=1
+        # nums=list(set(nums))
+        n=len(nums)
+        for i in range(n):
+            left=i+1
+            right=n-1
+            target=-nums[i]
+            while left<right:
+                if target==nums[left]+nums[right]:
+                    ans.add((nums[i],nums[left],nums[right]))
+                    left+=1
+                    right-=1
+                elif target<nums[left]+nums[right]:
+                    right-=1
                 else:
-                    pr2-=1
-        final =[list(i) for i in ans]
-        return final
+                    left+=1
+        return ans
+            
+        
                     
                 
                     
