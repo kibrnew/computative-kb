@@ -17,16 +17,16 @@ class Solution:
         for right in range(n):
             count[s[right]]+=1
             
-            while compare(count,target):
+            if compare(count,target):
+                while left<n and count[s[left]]>target[s[left]]:
+        
+                    count[s[left]]-=1
+                    left+=1
+                    
                 if right-left<ans[1]-ans[0]:
                     ans=(left,right)
-                    # print("nsnsn")
-                    
-                count[s[left]]-=1
-                left+=1
-                # print("heere")
-        
-            # print(count)
+
+
         if ans[1]-ans[0]>n:
             return ""
         return s[ans[0]:ans[1]+1]
