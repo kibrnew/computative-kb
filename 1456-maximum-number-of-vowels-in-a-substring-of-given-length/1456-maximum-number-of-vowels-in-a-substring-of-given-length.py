@@ -1,19 +1,20 @@
 class Solution:
     def maxVowels(self, s: str, k: int) -> int:
-        pr1=0
-        pr2=0
-        store={'a','e','i','o','u'}
-        ans=set([])
+        
+        target=set("aeiou")
         count=0
-        for j in range(k):
-            if s[j] in store:
+        for val in s[:k]:
+            if val in target:
                 count+=1
-        ans.add(count)
-        for i in range(k,len(s)):
-            if s[i] in store:
-                count+=1
-            if s[i-k] in store:
+        ans=count
+        n=len(s)
+        for i in range(n-k):
+            if s[i] in target:
                 count-=1
-            ans.add(count)
+            if s[i+k] in target:
+                count+=1
+            ans=max(ans,count)
+        return ans 
             
-        return max(ans)
+        
+        
