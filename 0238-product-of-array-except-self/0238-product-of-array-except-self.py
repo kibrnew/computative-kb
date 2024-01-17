@@ -1,20 +1,22 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        n=len(nums)
+      
         p=1
         zero=0
-        for i in nums:
-            if i==0:
+        for val in nums:
+            if val==0:
                 zero+=1
-                continue
             else:
-                p*=i
-        l=[]
-        if zero>0:
-            l=[0]*len(nums)
-            if zero==1:
-                l[nums.index(0)]=p 
-        else:
-            for i in range(len(nums)):
-                l.append(p//nums[i])
-        return l
+                p*=val
+                
+        ans=[0]*n
+       
+        if zero==1:
+            ans[nums.index(0)]=p
+        if zero==0:
+            for i in range(n):
+                ans[i]=p//nums[i]
+        return ans
+        
         
