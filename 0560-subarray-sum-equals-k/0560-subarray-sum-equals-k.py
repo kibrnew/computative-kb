@@ -8,7 +8,7 @@ class Solution:
 
         count=Counter()
         ans=0
-        print(prefix)
+        # print(prefix)
         for val in prefix:
             rest=k+val
             ans+=count[val]
