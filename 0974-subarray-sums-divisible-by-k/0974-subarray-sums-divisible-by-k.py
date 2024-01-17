@@ -7,10 +7,11 @@ class Solution:
         val=0
         for vv in nums:
             val+=vv
-            ans+=count.get(val%k,0)
-            if val%k not in count:
-                count[val%k]=0
-            count[val%k]+=1
+            ind=val%k
+            ans+=count.get(ind,0)
+            if ind not in count:
+                count[ind]=0
+            count[ind]+=1
         return ans
             
             
