@@ -1,18 +1,15 @@
 class Solution:
     def corpFlightBookings(self, bookings: List[List[int]], n: int) -> List[int]:
-        prefix = [0] * (n + 1)
-
-        # iterate over each booking and assign it to its corresponding interval
-        for booking in bookings:
-            start, end, seats = booking
-            prefix[start - 1] += seats
-            prefix[end] -= seats
-
-        # apply prefix sum on the assigned interval to get the total sum on each interval
-        total_seats = 0
-        for i in range(n + 1):
-            total_seats += prefix[i]
-            prefix[i] = total_seats
-
-        # return the answer up to n
-        return prefix[:n]
+        
+        temp=[0]*(n+1)
+        
+        for l,r,val in bookings:
+            temp[l-1]+=val
+            temp[r]-=val
+        
+        for i in range(1,n):
+            temp[i]+=temp[i-1]
+        return temp[:-1]
+            
+            
+        
