@@ -1,17 +1,16 @@
 class Solution:
     def carPooling(self, trips: List[List[int]], capacity: int) -> bool:
         
-        last=max(trips,key=lambda x:x[-1])[-1]
+        maxi=max(trips,key=lambda x:x[-1])[-1]
+        ans=[0]*(maxi+1)
         
-        prefix=[0]*(last+1)
+        for val,left,right in trips:
+            ans[left]+=val
+            ans[right]-=val
         
-        for np,start,end in trips:
-            prefix[start]+=np
-            prefix[end]-=np
         s=0
-        for val in prefix:
+        for val in ans:
             s+=val
-            if s>capacity:
+            if s>capacity :
                 return False
-        return True
-        
+        return True 
