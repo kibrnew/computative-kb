@@ -26,8 +26,8 @@ class MyLinkedList:
         
     def addAtHead(self, val: int) -> None:
         new=ListNode(val)
-        new.next=self.dummy.next
-        self.dummy.next=new
+        new.next,self.dummy.next=self.dummy.next,new
+    
 
        
     def addAtTail(self, val: int) -> None:
