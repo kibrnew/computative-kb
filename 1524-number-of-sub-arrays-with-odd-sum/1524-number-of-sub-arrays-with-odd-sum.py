@@ -9,7 +9,8 @@ class Solution:
             if val%2==1:
                 c^=1
             ans+=count[c^1]
+            ans%=(10**9 + 7)
             
-        return ans%(10**9 + 7)
+        return ans
                 
         
