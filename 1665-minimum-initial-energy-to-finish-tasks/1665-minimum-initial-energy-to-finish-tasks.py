@@ -8,7 +8,6 @@ class Solution:
         tasks.sort(key=lambda x:x[0]-x[1])
         
         res=ans
-        # print(tasks)
         for a,b in tasks:
             if res<b:
                 ans+=b-res
