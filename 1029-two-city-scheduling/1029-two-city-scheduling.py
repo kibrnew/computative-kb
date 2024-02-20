@@ -7,20 +7,19 @@ class Solution:
         i=0
         j=0
         for a,b in costs:
-            if j==n:
-                ans+=a
-            elif i==n:
+            if i==n:
                 ans+=b
-            else:
-                if a<b:
-                    ans+=a
-                    i+=1
-                elif b<a:
-                    ans+=b
-                    j+=1
-                else:
-                    ans+=a
-        return ans
+            elif j==n:
+                ans+=a
+            elif a<b:
+                ans+=a
+                i+=1
+            elif b<a:
+                j+=1
+                ans+=b
+            elif b==a:
+                ans+=a
+        return ans 
                 
             
         
