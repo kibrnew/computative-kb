@@ -3,7 +3,7 @@ class Solution:
         
         maxi=0
         ans=0
-        nums.append(n+1)
+        nums.append(n)
         for val in nums:
             if maxi>=n:
                 break
