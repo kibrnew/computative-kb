@@ -1,19 +1,23 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        cur=0
-        ind=s.rfind(s[0])
+        ind=defaultdict(list)
+        n=len(s)
+        for i in range(n):
+            ind[s[i]].append(i)
+            
+        i=0
+        r=0
         ans=[]
-        last=-1
-        while ind<len(s):
-            ind=max(ind,s.rfind(s[cur]))
-            while cur<ind:
-                ind=max(ind,s.rfind(s[cur]))
-                cur+=1
-            ans.append(ind-last)
-            last=ind
-            ind+=1
-            cur=ind
+        l=-1
+        while i<n:
+            val=s[i]
+            r=max(r,ind[val][-1])
+            if r==i:
+                ans.append(r-l)
+                l=r
+            i+=1
         return ans
+            
     
             
                 
