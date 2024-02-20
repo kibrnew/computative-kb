@@ -3,7 +3,7 @@ class Solution:
         ind=defaultdict(list)
         n=len(s)
         for i in range(n):
-            ind[s[i]].append(i)
+            ind[s[i]]=i
             
         i=0
         r=0
@@ -11,7 +11,7 @@ class Solution:
         l=-1
         while i<n:
             val=s[i]
-            r=max(r,ind[val][-1])
+            r=max(r,ind[val])
             if r==i:
                 ans.append(r-l)
                 l=r
