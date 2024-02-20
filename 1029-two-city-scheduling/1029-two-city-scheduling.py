@@ -16,6 +16,7 @@ class Solution:
             
             elif b==a:
                 ans+=a
+                i+=1
         return ans 
                 
             
