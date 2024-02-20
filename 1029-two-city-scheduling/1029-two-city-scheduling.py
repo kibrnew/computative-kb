@@ -7,18 +7,13 @@ class Solution:
         i=0
         j=0
         for a,b in costs:
-            if i>=n:
+            if i>=n or (j<n and b<a):
                 ans+=b
                 j+=1
-            elif j>=n:
+            elif j>=n or a<b:
                 ans+=a
                 i+=1
-            elif a<b:
-                ans+=a
-                i+=1
-            elif b<a:
-                ans+=b
-                j+=1
+            
             elif b==a:
                 ans+=a
         return ans 
