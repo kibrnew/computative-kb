@@ -5,17 +5,15 @@ class Solution:
         for i in range(n):
             ind[s[i]]=i
             
-        i=0
         r=0
         ans=[]
         l=-1
-        while i<n:
+        for i in range(n):
             val=s[i]
             r=max(r,ind[val])
             if r==i:
                 ans.append(r-l)
                 l=r
-            i+=1
         return ans
             
     
