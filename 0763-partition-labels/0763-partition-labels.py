@@ -1,6 +1,6 @@
 class Solution:
     def partitionLabels(self, s: str) -> List[int]:
-        ind=defaultdict(list)
+        ind={}
         n=len(s)
         for i in range(n):
             ind[s[i]]=i
