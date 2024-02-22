@@ -1,16 +1,22 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         
-        closes={"{":"}","[":"]","(":")"}
         stack=[]
+        left="{[("
+        right="}])"
+        
         for val in s:
-            if val in closes:
-                stack.append(val)
-            else:
-                if not stack or closes[stack.pop()]!=val:
-                    return False
-        if stack:
-            return False
-        return True 
             
-       
+            if val in left:
+                stack.append(val)
+                
+            else:
+                ind=right.index(val)
+                if stack and stack[-1]==left[ind]:
+                    stack.pop()
+                else:
+                    return False
+        return not(stack)
+            
+            
+     
