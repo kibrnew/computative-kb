@@ -3,37 +3,21 @@ class Solution:
 
         houses.sort()
         heaters.sort()
-        r=max(houses+heaters)
-        heaters.append(10**10)
-        
+        ans=0
 
-        def calc(t):
-            for val in houses:
-                ind=bisect_left(heaters,val)
-                if abs(val-heaters[ind])<=t:
-                    continue
-                if abs(val-heaters[ind-1])<=t:
-                    continue 
-                return False
-                
-
-            return True 
-
-
-
-        l=0
-      
-
-        while l<=r:
-            mid=(l+r)//2
-            
-            if calc(mid):
-                r=mid-1
+        for val in houses:
+            ind=bisect_left(heaters,val)
+            if ind==len(heaters):
+                ans=max(ans,val-heaters[-1])
             else:
-                l=mid+1
+                cur=abs(val-heaters[ind])
+                if ind+1<len(heaters):
+                    cur=min(cur,abs(val-heaters[ind+1]))
+                    
+                if ind-1>=0:
+                    cur=min(cur,abs(val-heaters[ind-1]))
 
-        return l
+                ans=max(ans,cur)
 
+        return ans 
 
-        
-        # return 1
